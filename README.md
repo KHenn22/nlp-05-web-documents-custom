@@ -11,7 +11,7 @@
 
 > Acquire, validate, and transform HTML web documents using Python.
 
-## Project Overview
+## Custom Project Processes and Results
 
 Author: Kevin Hennelly
 
@@ -67,6 +67,81 @@ The lexical diversity score of 0.785 indicates that approximately 78.5% of the w
 ### Conclusion
 
 The experiment worked as expected. I learned how to add a new derived field to an existing data processing pipeline while preserving the original example. Lexical diversity provides another way to analyze text and could be useful when comparing vocabulary across different academic papers.
+
+## Custom Application: Air Traffic Conflict Resolution Research
+
+### Project Overview
+
+For my custom application, I used the EVTL pipeline to extract and analyze information from an academic paper related to air traffic control conflict resolution.
+
+The goal was to demonstrate how web scraping and text analysis techniques can be applied to aviation research, while also showing comparison in lexical diversity between two different academic papers more broadly.
+
+### Data Source
+
+**Paper:** Data-driven prediction of Air Traffic Controllers reactions to resolving conflicts
+
+**Authors:** Alevizos Bastas and George A. Vouros
+
+**Source:** https://arxiv.org/abs/2205.09539
+
+The paper examines how data-driven methods can help predict air traffic controller actions when resolving potential aircraft conflicts.
+
+### Methods and Tools
+
+I used Python, Requests, BeautifulSoup, and Pandas to extract, validate, transform, and organize information from the paper's arXiv page.
+
+The project follows the Extract, Validate, Transform, and Load (EVTL) pipeline:
+
+1. **Extract:** Retrieve the HTML document from arXiv.
+2. **Validate:** Check the HTML structure and required elements.
+3. **Transform:** Extract metadata and calculate text analysis metrics.
+4. **Load:** Save the structured data to a CSV file.
+
+I also used Matplotlib to create a visualization comparing lexical diversity scores.
+
+### Customization
+
+I created a separate `config_custom.py` file to specify the new paper and output filenames.
+
+I also used `stage03_transform_custom.py` to calculate lexical diversity and `pipeline_web_html_custom.py` to execute the customized pipeline.
+
+The original example files were preserved.
+
+### Results
+
+The customized pipeline executed successfully and produced the following results:
+
+- Authors: 2
+- Abstract word count: 148
+- Lexical diversity score: 0.608
+- DataFrame: 1 row and 9 columns
+- Output file: `data/processed/atc_conflict_processed.csv`
+
+### Lexical Diversity Comparison
+
+![Lexical Diversity Comparison](docs/images/lexical_diversity_comparison.png)
+
+The *Agents of Chaos* abstract had a lexical diversity score of 0.785, compared with 0.608 for the air traffic conflict resolution paper.
+
+This means approximately 78.5% of the analyzed words in the first abstract were unique, compared with 60.8% in the aviation paper.
+
+The difference suggests that the first abstract contained a greater proportion of unique vocabulary; however, differences in document length and subject matter may also influence the scores.
+
+### Interpretation and Limitations
+
+The project demonstrates that the same EVTL pipeline can process academic papers on different subjects while maintaining a consistent data structure.
+
+One notable limitation is that the analysis only compares two abstracts. Lexical diversity alone does not determine the complexity or quality of academic writing. Additional papers would provide a better basis for identifying broader trends.
+
+### Conclusion
+
+This project allowed me to apply web scraping, HTML parsing, data validation, and text analysis to an aviation-related research topic.
+
+The customized pipeline successfully extracted the paper's metadata, calculated lexical diversity, and generated a CSV file for further analysis.
+
+In the future, I could expand this project to compare a larger collection of aviation research papers and identify patterns in the terminology used across different subjects.
+
+## General Project Overview
 
 ## Data
 
