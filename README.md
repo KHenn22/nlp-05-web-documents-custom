@@ -34,6 +34,40 @@ rather than JSON API responses.
 The project is configured in
 [pyproject.toml](pyproject.toml).
 
+## Technical Modification: Abstract Lexical Diversity
+
+### Purpose
+
+For this experiment, I added a new field called `abstract_lexical_diversity` to the Transform stage of the EVTL pipeline. This measures vocabulary variety by calculating the proportion of unique words in the abstract compared to the total number of words.
+
+### Prediction
+
+I predicted that the program would calculate a lexical diversity score between 0 and 1 and add it as a new column in the DataFrame and CSV file. A score closer to 1 indicates more unique words, while a score closer to 0 indicates more repetition.
+
+### Modification
+
+I created a custom copy of `stage03_transform.py` named `stage03_transform_custom.py` and updated the custom pipeline to use it.
+
+The new calculation converts words to lowercase, removes common surrounding punctuation, and divides the number of unique words by the total number of words. The result is rounded to three decimal places.
+
+The original Python files were preserved.
+
+### Results
+
+The modified pipeline ran successfully using the academic paper *Agents of Chaos* from arXiv.
+
+- Abstract word count: 177
+- Lexical diversity score: 0.785
+- Original DataFrame: 1 row and 8 columns
+- Modified DataFrame: 1 row and 9 columns
+- Output file: `data/processed/case_processed.csv`
+
+The lexical diversity score of 0.785 indicates that approximately 78.5% of the words counted in the abstract were unique.
+
+### Conclusion
+
+The experiment worked as expected. I learned how to add a new derived field to an existing data processing pipeline while preserving the original example. Lexical diversity provides another way to analyze text and could be useful when comparing vocabulary across different academic papers.
+
 ## Data
 
 The example retrieves an academic paper's abstract page
