@@ -2,6 +2,9 @@
 
 (EDIT YOUR VERSION OF THIS FILE)
 
+Kevin Hennelly
+2026-11
+
 Source: validated BeautifulSoup object
 Sink: Pandas DataFrame
 
